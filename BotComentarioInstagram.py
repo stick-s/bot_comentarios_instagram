@@ -3,8 +3,6 @@ from selenium.webdriver.common.keys import Keys
 import time
 import random
 
-# Fiz algumas modificações
-
 
 class InstagramBot:
     def __init__(self, username, password):
@@ -13,18 +11,10 @@ class InstagramBot:
         chromeProfile = webdriver.chromeOptions()
         chromeProfile.add_argument('lang=pt-br')
         self.driver = webdriver.Chrome(executable_path="./chromedriver.exe")
-        """ # Coloque o caminho para o seu geckodriver aqui, lembrando que você precisa instalar o firefox e geckodriver na versão mais atual """
-        # Link download do geckodriver: https://github.com/mozilla/geckodriver/releases
-        # Link download Firefox https://www.mozilla.org/pt-BR/firefox/new/
 
     def login(self):
         driver = self.driver
         driver.get("https://www.instagram.com")
-        time.sleep(3)
-        login_button = driver.find_element_by_xpath(
-            "//a[@href='/accounts/login/?source=auth_switcher']"
-        )
-        login_button.click()
         time.sleep(3)
         user_element = driver.find_element_by_xpath(
             "//input[@name='username']")
