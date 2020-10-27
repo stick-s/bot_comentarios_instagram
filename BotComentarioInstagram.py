@@ -10,12 +10,9 @@ class InstagramBot:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        firefoxProfile = webdriver.FirefoxProfile()
-        firefoxProfile.set_preference("intl.accept_languages", "pt,pt-BR")
-        firefoxProfile.set_preference("dom.webnotifications.enabled", False)
-        self.driver = webdriver.Firefox(
-            firefox_profile=firefoxProfile, executable_path=r"./geckodriver"
-        )
+        chromeProfile = webdriver.chromeOptions()
+        chromeProfile.add_argument('lang=pt-br')
+        self.driver = webdriver.Chrome(executable_path="./chromedriver.exe")
         """ # Coloque o caminho para o seu geckodriver aqui, lembrando que você precisa instalar o firefox e geckodriver na versão mais atual """
         # Link download do geckodriver: https://github.com/mozilla/geckodriver/releases
         # Link download Firefox https://www.mozilla.org/pt-BR/firefox/new/
